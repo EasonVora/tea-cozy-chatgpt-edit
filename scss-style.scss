@@ -1,60 +1,43 @@
-/* CHAT-GPT CONVERSION OF "mystyles.css" INTO SEMANTIC SASS */
+/* CHAT-GPT CONVERSION OF "mystyles.css" INTO SEMANTIC SCSS (without variables) */
 
-/* ERROR: CANNOT BE READ WHEN LINKED TO HTML EVEN IN VScode, MUST BE CONVERTED BACK INTO CSS */
+/* ERROR: CANNOT BE READ WHEN LINKED TO HTML EVEN IN VScode, MUST BE CONVERTED BACK INTO CSS or MAKE FILE A CSS FILE */
 
 /* THIS IS NOT LINKED */
   
-  // Variables
-$primary-font: Helvetica, Arial, sans-serif;
-$default-color: seashell;
-$black: black;
-$header-height: 69px;
-$logo-height: 50px;
-$menu-right: 50px;
-$margin-top-header: 69px;
-$padding-horizontal: 40px;
-$img-width: 300px;
-$img-height: 200px;
-$address-box-size: 300px;
-
-// General Styles
 html {
-  font-size: 1.375em; // Adjusts all font sizes to scale according to the p element at 22px
+  font-size: 1.375em; /* Adjusts all font sizes to scale according to the p element at 22px */
 }
 
 * {
-  font-family: $primary-font;
-  color: $default-color;
+  font-family: Helvetica, Arial, sans-serif; /* Changed default font family selection order to have Helvetica as primary, kept Arial as backup */
+  color: seashell;
 }
 
-// Header
+/* FIXED TOPBAR */
 header {
-  background-color: $black;
-  border-bottom: 1px solid $default-color;
-  display: flex;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  height: $header-height;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 69px;
   width: 100%;
   padding: 10px;
   margin: 0;
+  background-color: black;
+  border-bottom: 1px solid seashell;
 
   #logo {
-    height: $logo-height;
+    height: 50px;
     padding-right: 20px;
   }
 
   #menu {
     position: absolute;
-    right: $menu-right;
-
-    a {
-      // Default styles for <a> inside #menu
-    }
+    right: 50px;
 
     @media (min-width: 600px) {
       a {
@@ -71,31 +54,33 @@ header {
   }
 }
 
-// Body
+/* Body */
 body {
-  background-color: $black;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: $margin-top-header;
-  padding: 0 $padding-horizontal;
+  margin-top: 69px;
+  padding: 0 40px;
 
-  // INTRO ARTICLE
+  /* INTRO ARTICLE */
   #image-and-mission {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    padding: 0;
     margin: -5px 0 0 0;
 
     #mission {
-      background-color: $black;
+      background-color: black;
       text-align: center;
-      position: absolute;
+      position: absolute; /* positions the text over the image */
       left: 0;
       right: 0;
-      padding: 0 50px;
       margin: 0;
+      padding: 0 50px;
     }
 
     #mission-background {
@@ -105,7 +90,7 @@ body {
     }
   }
 
-  // PRODUCTS ARTICLE
+  /* PRODUCTS ARTICLE */
   #products-article {
     h2, h4 {
       text-align: center;
@@ -121,11 +106,11 @@ body {
     }
 
     .item-and-name {
-      margin: 15px;
-      
+      margin: 15px 15px;
+
       img {
-        width: $img-width;
-        height: $img-height;
+        width: 300px;
+        height: 200px;
       }
 
       h4 {
@@ -134,7 +119,7 @@ body {
     }
   }
 
-  // LOCATIONS ARTICLE
+  /* LOCATIONS ARTICLE */
   #locations-article {
     background-image: url(./images/img-locations-background.webp);
     background-repeat: no-repeat;
@@ -145,31 +130,32 @@ body {
 
     h2 {
       text-align: center;
+      display: block;
       margin: 52px auto 0 auto;
     }
 
     #locations-boxes {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      text-align: center;
       width: 100%;
       padding-bottom: 100px;
+      text-align: center;
 
       .address-box {
-        background-color: $black;
+        background-color: black;
         text-align: center;
         margin: 15px 40px;
-        width: $address-box-size;
-        height: $address-box-size;
-        align-items: center;
+        width: 300px;
+        height: 300px;
+        align-content: center;
         justify-content: center;
       }
     }
   }
 
-  // Contact Section
+  /* Contact Section */
   #contact {
     text-align: center;
     height: 200px;
@@ -178,13 +164,13 @@ body {
 
     h2 {
       line-height: .5;
-      margin: 20px 0 50px 0;
       padding: 0;
+      margin: 20px 0 50px 0;
     }
   }
 }
 
-// Footer
+/* Footer */
 footer {
   h5 {
     position: relative;

@@ -31,18 +31,14 @@ html {
     margin: 0;
   }
   
-  header #logo {
+  #logo {
     height: 50px;
     padding-right: 20px;
   }
   
-  header #menu {
+  #menu {
     position: absolute;
     right: 50px;
-  }
-  
-  header #menu a {
-    /* Default styles for <a> inside #menu */
   }
   
   @media (min-width: 600px) {
